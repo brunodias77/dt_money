@@ -1,8 +1,11 @@
+import Summary from "./Summary";
+import Container from "@/components/Ui/Container"
+
 const Dashboard = () => {
     return (
-        <div>
-            <h1>Dashboard</h1>
-        </div>
+        <Container>
+            <Summary />
+        </Container>
     );
 }
 
