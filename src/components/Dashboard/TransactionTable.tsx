@@ -2,7 +2,7 @@ import Container from "../Ui/Container"
 import { useTransactions } from "@/hooks/useTransaction";
 
 const TransactionTable = () => {
-    const transactions = useTransactions();
+    const { transactions } = useTransactions();
     return (
         <div>
             <table className="w-full border-separate  border-spacing-y-2">
