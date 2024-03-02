@@ -1,10 +1,12 @@
 import Summary from "./Summary";
-import Container from "@/components/Ui/Container"
+import Container from "@/components/Ui/Container";
+import TransactionTable from "./TransactionTable";
 
 const Dashboard = () => {
     return (
-        <Container>
+        <Container className="">
             <Summary />
+            <TransactionTable />
         </Container>
     );
 }

@@ -9,9 +9,9 @@ interface HeaderProps {
 const Header: React.FC<HeaderProps> = ({ openModal }) => {
     return (
         <header className=" bg-blue_700 text-white">
-            <Container className="py-8 flex items-center justify-between">
+            <Container className="pt-8 pb-40 flex items-center justify-between">
                 <Image src={Logo} alt="Logo" width={150} height={50} />
-                <button type="button" onClick={() => openModal()} className="bg-[#6933FF] py-2 px-3 rounded font-bold">
+                <button type="button" onClick={() => openModal()} className="bg-[#6933FF] text-white py-2 px-8 rounded font-bold ransition duration-200 ease-in-out hover:filter hover:brightness-90">
                     Nova Transação
                 </button>
             </Container>
