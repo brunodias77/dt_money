@@ -15,7 +15,7 @@ const NewTransactionModal = ({ isNewTransactionModalOpen, handleCloseNewTransact
     const [type, setType] = useState("deposit");
     const [title, setTitle] = useState("");
     const [category, setCategory] = useState("");
-    const [value, setValue] = useState(0);
+    const [value, setValue] = useState("");
 
     async function handleCreateNewTransaction(event: React.FormEvent<HTMLFormElement>) {
         event.preventDefault();
@@ -44,20 +44,20 @@ const NewTransactionModal = ({ isNewTransactionModalOpen, handleCloseNewTransact
             <Container>
                 <form onSubmit={handleCreateNewTransaction} className="">
                     <h2 className="text-text_title text-2xl	">Cadastrar transação</h2>
-                    <Input placeholder="Descricao" />
-                    <Input placeholder="Preco" />
+                    <Input placeholder="Descricao" value={title} setValue={setTitle} />
+                    <Input placeholder="Preco" value={value} setValue={setValue} />
                     <div className="flex gap-2 items-center justify-between w-full">
-                        <Button className="flex items-center justify-center" >
+                        <Button className="flex items-center justify-center border" >
                             <Image src={EntradasImg} alt="fechar modal" />
                             <span>Entradas</span>
                         </Button>
-                        <Button className="flex items-center justify-center">
+                        <Button className="flex items-center justify-center border">
                             <Image src={SaidasImg} alt="fechar modal" />
                             <span>Saídas</span>
                         </Button>
                     </div>
-                    <Input placeholder="Categoria" />
-                    <Button className="mt-8">
+                    <Input placeholder="Categoria" value={category} setValue={setCategory} />
+                    <Button className="mt-8 bg-green text-white font-bold px-8">
                         <span>Cadastrar</span>
                     </Button>
                 </form>

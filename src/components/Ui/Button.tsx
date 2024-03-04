@@ -9,7 +9,7 @@ interface ButtonProps {
 
 const Button: React.FC<ButtonProps> = ({ className, children }) => {
     return (
-        <button className={`${className} w-full p-2 bg-yellow-400 rounded`}>
+        <button className={`${className} w-full p-2  rounded`}>
             {children}
         </button>
 

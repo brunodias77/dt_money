@@ -1,5 +1,7 @@
 import React, { createContext, useState, useEffect, useContext, PropsWithChildren, ReactNode } from "react";
 import { api } from "@/lib/api";
+import { v4 as uuid } from 'uuid';
+
 
 interface TransactionsProviderProps {
     children: ReactNode;
@@ -7,7 +9,7 @@ interface TransactionsProviderProps {
 
 interface TransactionInput {
     title: string;
-    value: number;
+    value: string;
     category: string;
     type: string;
 }
@@ -45,7 +47,9 @@ export const TransactionsProvider: React.FC<TransactionsProviderProps> = ({ chil
     }, []);
 
     async function createTransaction(transactionInput: TransactionInput) {
+        const id = uuid();
         const response = await api.post("/transactions", {
+            id,
             ...transactionInput,
             createdAt: new Date(),
         });
