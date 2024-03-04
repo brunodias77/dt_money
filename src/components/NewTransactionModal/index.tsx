@@ -2,10 +2,12 @@ import Modal from "react-modal";
 import fecharImg from "@/assets/Fechar.svg";
 import Image from "next/image";
 import Input from "@/components/Ui/Input";
+import Container from "@/components/Ui/Container";
 import Button from "@/components/Ui/Button";
+import EntradasImg from "@/assets/Entradas.svg";
+import SaidasImg from "@/assets/Saídas.svg";
 import { useTransactions } from "@/hooks/useTransaction";
 import { useState } from "react";
-import Container from "@/components/Ui/Container";
 
 
 const NewTransactionModal = ({ isNewTransactionModalOpen, handleCloseNewTransactionModal, }: any) => {
@@ -45,10 +47,19 @@ const NewTransactionModal = ({ isNewTransactionModalOpen, handleCloseNewTransact
                     <Input placeholder="Descricao" />
                     <Input placeholder="Preco" />
                     <div className="flex gap-2 items-center justify-between w-full">
-                        <Button />
-                        <Button />
+                        <Button className="flex items-center justify-center" >
+                            <Image src={EntradasImg} alt="fechar modal" />
+                            <span>Entradas</span>
+                        </Button>
+                        <Button className="flex items-center justify-center">
+                            <Image src={SaidasImg} alt="fechar modal" />
+                            <span>Saídas</span>
+                        </Button>
                     </div>
-                    <Button className="mt-8" />
+                    <Input placeholder="Categoria" />
+                    <Button className="mt-8">
+                        <span>Cadastrar</span>
+                    </Button>
                 </form>
             </Container>
         </Modal>
