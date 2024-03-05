@@ -9,7 +9,7 @@ interface TransactionsProviderProps {
 
 interface TransactionInput {
     title: string;
-    value: string;
+    value: number;
     category: string;
     type: string;
 }

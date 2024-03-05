@@ -15,7 +15,7 @@ const NewTransactionModal = ({ isNewTransactionModalOpen, handleCloseNewTransact
     const [type, setType] = useState("deposit");
     const [title, setTitle] = useState("");
     const [category, setCategory] = useState("");
-    const [value, setValue] = useState("");
+    const [value, setValue] = useState(0);
 
     async function handleCreateNewTransaction(event: React.FormEvent<HTMLFormElement>) {
         event.preventDefault();
@@ -44,9 +44,9 @@ const NewTransactionModal = ({ isNewTransactionModalOpen, handleCloseNewTransact
             <Container>
                 <form onSubmit={handleCreateNewTransaction} className="">
                     <h2 className="text-text_title text-2xl	">Cadastrar transação</h2>
-                    <Input placeholder="Descricao" value={title} setValue={setTitle} />
-                    <Input placeholder="Preco" value={value} setValue={setValue} />
-                    <div className="flex gap-2 items-center justify-between w-full">
+                    <Input value={title} onChange={(event) => setTitle(event.target.value)} />
+                    <Input type="number" placeholder="Valor" value={value} onChange={(event) => setValue(Number(event.target.value))} />
+                    <div className="flex gap-2 items-center justify-between w-full mt-4">
                         <Button className="flex items-center justify-center border" >
                             <Image src={EntradasImg} alt="fechar modal" />
                             <span>Entradas</span>
@@ -56,9 +56,9 @@ const NewTransactionModal = ({ isNewTransactionModalOpen, handleCloseNewTransact
                             <span>Saídas</span>
                         </Button>
                     </div>
-                    <Input placeholder="Categoria" value={category} setValue={setCategory} />
-                    <Button className="mt-8 bg-green text-white font-bold px-8">
-                        <span>Cadastrar</span>
+                    <Input placeholder="Categoria" value={category} onChange={(event) => setCategory(event.target.value)}
+                    />                    <Button className="mt-8 bg-green text-white font-bold px-8">
+                        <span className="text-lg">Cadastrar</span>
                     </Button>
                 </form>
             </Container>
