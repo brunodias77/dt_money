@@ -44,7 +44,7 @@ const NewTransactionModal = ({ isNewTransactionModalOpen, handleCloseNewTransact
             <Container>
                 <form onSubmit={handleCreateNewTransaction} className="">
                     <h2 className="text-text_title text-2xl	">Cadastrar transação</h2>
-                    <Input value={title} onChange={(event) => setTitle(event.target.value)} />
+                    <Input value={title} onChange={(event) => setTitle(event.target.value)} placeholder="Descricao" />
                     <Input type="number" placeholder="Valor" value={value} onChange={(event) => setValue(Number(event.target.value))} />
                     <div className="flex gap-2 items-center justify-between w-full mt-4">
                         <Button className="flex items-center justify-center border" >
