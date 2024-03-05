@@ -47,19 +47,39 @@ const NewTransactionModal = ({ isNewTransactionModalOpen, handleCloseNewTransact
                     <Input value={title} onChange={(event) => setTitle(event.target.value)} placeholder="Descricao" />
                     <Input type="number" placeholder="Valor" value={value} onChange={(event) => setValue(Number(event.target.value))} />
                     <div className="flex gap-2 items-center justify-between w-full mt-4">
-                        <Button className="flex items-center justify-center border" >
-                            <Image src={EntradasImg} alt="fechar modal" />
-                            <span>Entradas</span>
+                        <Button
+                            onClick={() => {
+                                console.log("Apertei o entradas")
+                                setType('deposit');
+                                console.log("type", type)
+
+                            }}
+                            isActive={type === 'deposit'}
+                            activeColor="green"
+                        >
+                            <Image src={EntradasImg} alt="Entradas" className="w-5 h-5" />
+                            <span className="ml-4 text-base text-gray-700">Entradas</span>
                         </Button>
-                        <Button className="flex items-center justify-center border">
-                            <Image src={SaidasImg} alt="fechar modal" />
-                            <span>Saídas</span>
+                        <Button
+                            onClick={() => {
+                                console.log("Apertei o saidas")
+                                setType('withdraw');
+                                console.log("type", type)
+
+                            }}
+                            isActive={type === 'withdraw'}
+                            activeColor="red"
+                        >
+                            <Image src={SaidasImg} alt="Saídas" className="w-5 h-5" color={type === "withdraw" ? "white" : "green"} />
+                            <span className="ml-4 text-base text-gray-700">Saídas</span>
                         </Button>
+
                     </div>
                     <Input placeholder="Categoria" value={category} onChange={(event) => setCategory(event.target.value)}
-                    />                    <Button className="mt-8 bg-green text-white font-bold px-8">
+                    />
+                    {/* <Button className="mt-8 bg-green text-white font-bold px-8">
                         <span className="text-lg">Cadastrar</span>
-                    </Button>
+                    </Button> */}
                 </form>
             </Container>
         </Modal>

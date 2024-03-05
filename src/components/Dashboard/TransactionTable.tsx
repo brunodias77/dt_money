@@ -16,7 +16,6 @@ const TransactionTable = () => {
                 </thead>
                 <tbody>
                     {transactions && transactions.map((element) => {
-                        console.log(element.type);
                         return (
                             <tr key={element.id}>
                                 <td className="px-6 py-4 border-0 bg-shape text-text_body rounded-tl-lg rounded-bl-lg">{element.title}</td>
