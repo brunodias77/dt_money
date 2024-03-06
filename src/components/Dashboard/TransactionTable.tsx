@@ -19,7 +19,7 @@ const TransactionTable = () => {
                         return (
                             <tr key={element.id}>
                                 <td className="px-6 py-4 border-0 bg-shape text-text_body rounded-tl-lg rounded-bl-lg">{element.title}</td>
-                                <td className={`${element.type === 'deposit' ? 'text-green' : 'text-red'} px-6 py-4 border-0 bg-shape  `}>
+                                <td className={`${element.type === 'deposit' ? 'text-green_600' : 'text-red_600'} px-6 py-4 border-0 bg-shape  `}>
                                     {new Intl.NumberFormat("pt-BR", {
                                         style: "currency",
                                         currency: "BRL",

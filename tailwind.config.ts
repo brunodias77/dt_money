@@ -15,12 +15,11 @@ const config: Config = {
       },
       colors: {
         blue_700: "#5429cc",
-
         text_title: "#363F5f",
         background: "#F0F2F5",
         blue: "#5429CC",
-        red: "#E52E4D",
-        green: "#33CC95",
+        red_600: "#E52E4D",
+        green_600: "#33CC95",
         blue_light: "#6933FF",
         text_body: "#969cb3",
         shape: "#FFFFFF",

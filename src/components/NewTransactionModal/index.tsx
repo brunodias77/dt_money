@@ -19,7 +19,14 @@ const NewTransactionModal = ({ isNewTransactionModalOpen, handleCloseNewTransact
 
     async function handleCreateNewTransaction(event: React.FormEvent<HTMLFormElement>) {
         event.preventDefault();
-        await createTransaction({ title, value, category, type });
+        console.log("apertou o submit");
+        console.log({
+            title,
+            value,
+            category,
+            type
+        })
+        // await createTransaction({ title, value, category, type });
         setType("deposit");
         setTitle("");
         setValue(0);
@@ -32,7 +39,7 @@ const NewTransactionModal = ({ isNewTransactionModalOpen, handleCloseNewTransact
             isOpen={isNewTransactionModalOpen}
             onRequestClose={handleCloseNewTransactionModal}
             overlayClassName="react-modal-overlay"
-            className="react-modal-content">
+            className="react-modal-content bg-background">
 
             <button
                 type="button"
@@ -45,44 +52,36 @@ const NewTransactionModal = ({ isNewTransactionModalOpen, handleCloseNewTransact
                 <form onSubmit={handleCreateNewTransaction} className="">
                     <h2 className="text-text_title text-2xl	">Cadastrar transação</h2>
                     <Input value={title} onChange={(event) => setTitle(event.target.value)} placeholder="Descricao" />
-                    <Input type="number" placeholder="Valor" value={value} onChange={(event) => setValue(Number(event.target.value))} />
+                    <Input placeholder="Valor" value={value} onChange={(event) => setValue(Number(event.target.value))} />
                     <div className="flex gap-2 items-center justify-between w-full mt-4">
                         <Button
+                            type="button"
                             onClick={() => {
-                                console.log("Apertei o entradas")
+                                console.log("clicou em deposito");
                                 setType('deposit');
-                                console.log("type", type)
-
                             }}
-                            isActive={type === 'deposit'}
-                            activeColor="green"
-                        >
-                            <Image src={EntradasImg} alt="Entradas" className="w-5 h-5" />
+                            className={`flex items-center justify-center ${type === 'deposit' ? 'bg-green-100' : 'bg-white'}`}                        >
+                            <Image src={EntradasImg} alt="Entradas" className="w-7 h-7" />
                             <span className="ml-4 text-base text-gray-700">Entradas</span>
                         </Button>
                         <Button
-                            onClick={() => {
-                                console.log("Apertei o saidas")
-                                setType('withdraw');
-                                console.log("type", type)
-
-                            }}
-                            isActive={type === 'withdraw'}
-                            activeColor="red"
+                            type="button"
+                            onClick={() => setType('withdraw')}
+                            className={`flex items-center justify-center ${type === 'withdraw' ? 'bg-red-100' : 'bg-white'}`}
                         >
-                            <Image src={SaidasImg} alt="Saídas" className="w-5 h-5" color={type === "withdraw" ? "white" : "green"} />
+                            <Image src={SaidasImg} alt="Saídas" className="w-7 h-7" />
                             <span className="ml-4 text-base text-gray-700">Saídas</span>
                         </Button>
 
                     </div>
                     <Input placeholder="Categoria" value={category} onChange={(event) => setCategory(event.target.value)}
                     />
-                    {/* <Button className="mt-8 bg-green text-white font-bold px-8">
+                    <Button className="mt-8 bg-green_600 text-white font-bold px-8" type="submit">
                         <span className="text-lg">Cadastrar</span>
-                    </Button> */}
+                    </Button>
                 </form>
             </Container>
-        </Modal>
+        </Modal >
     )
 };
 export default NewTransactionModal;
