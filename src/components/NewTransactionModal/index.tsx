@@ -44,8 +44,8 @@ const NewTransactionModal = ({ isNewTransactionModalOpen, handleCloseNewTransact
             <Container>
                 <form onSubmit={handleCreateNewTransaction} className="">
                     <h2 className="text-text_title text-2xl	">Cadastrar transação</h2>
-                    <Input value={title} onChange={(event) => setTitle(event.target.value)} placeholder="Descricao" />
-                    <Input placeholder="VALOR" type="number" value={value} onChange={(event) => setValue(Number(event.target.value))} />
+                    <Input placeHolder="Título" value={title} onChange={(event) => setTitle(event.target.value)} />
+                    <Input placeHolder="VALOR" type="number" value={value} onChange={(event) => setValue(Number(event.target.value))} />
                     <div className="flex gap-2 items-center justify-between w-full mt-4">
                         <Button
                             type="button"
@@ -66,7 +66,7 @@ const NewTransactionModal = ({ isNewTransactionModalOpen, handleCloseNewTransact
                         </Button>
 
                     </div>
-                    <Input placeholder="Categoria" value={category} onChange={(event) => setCategory(event.target.value)}
+                    <Input placeHolder="Categoria" value={category} onChange={(event) => setCategory(event.target.value)}
                     />
                     <Button className="hover:brightness-90 mt-8 bg-green_600 text-white font-bold px-8" type="submit">
                         <span className="text-lg">Cadastrar</span>
