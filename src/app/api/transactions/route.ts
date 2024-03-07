@@ -10,7 +10,5 @@ export async function GET() {
 export async function POST(request: Request) {
   const transaction = await request.json();
   data.push(transaction);
-  return NextResponse.json({
-    message: "Transacao adicionada com sucesso !",
-  });
+  return NextResponse.json(transaction);
 }

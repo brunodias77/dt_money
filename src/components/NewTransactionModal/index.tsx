@@ -19,14 +19,7 @@ const NewTransactionModal = ({ isNewTransactionModalOpen, handleCloseNewTransact
 
     async function handleCreateNewTransaction(event: React.FormEvent<HTMLFormElement>) {
         event.preventDefault();
-        console.log("apertou o submit");
-        console.log({
-            title,
-            value,
-            category,
-            type
-        })
-        // await createTransaction({ title, value, category, type });
+        await createTransaction({ title, value, category, type });
         setType("deposit");
         setTitle("");
         setValue(0);
@@ -57,7 +50,6 @@ const NewTransactionModal = ({ isNewTransactionModalOpen, handleCloseNewTransact
                         <Button
                             type="button"
                             onClick={() => {
-                                console.log("clicou em deposito");
                                 setType('deposit');
                             }}
                             className={`flex items-center justify-center ${type === 'deposit' ? 'bg-green-100' : 'bg-white'}`}                        >

@@ -35,26 +35,33 @@ export const TransactionsProvider: React.FC<TransactionsProviderProps> = ({ chil
     const [transactions, setTransactions] = useState<TransactionProps[]>([]);
 
     useEffect(() => {
-        fetch('/api/transactions')
+        fetch('http://localhost:3000/api/transactions')
             .then(response => response.json())
             .then(data => {
-                console.log(data.data); // Verificar se os dados estão sendo recebidos corretamente
                 setTransactions(data.data);
             })
             .catch(error => {
                 console.error('Error fetching transactions:', error);
             });
-    }, []);
+    }, [transactions]);
 
     async function createTransaction(transactionInput: TransactionInput) {
+        console.log("transactionInput", transactionInput);
         const id = uuid();
-        const response = await api.post("/transactions", {
-            id,
-            ...transactionInput,
-            createdAt: new Date(),
-        });
-        const { transaction } = response.data;
-        setTransactions([...transactions, transaction]);
+        const createdAt = new Date().toISOString();
+        const response = await fetch("http://localhost:3000/api/transactions", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                id,
+                ...transactionInput,
+                createdAt,
+            }),
+        }).then(response => response.json()).then(data => setTransactions(data)).catch(error => console.error(error));
+        // const { transaction } = response.json();
+        // setTransactions([...transactions, transaction]);
     }
 
     return (

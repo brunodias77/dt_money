@@ -15,7 +15,8 @@ const TransactionTable = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {transactions && transactions.map((element) => {
+                    {transactions ? transactions.map((element) => {
+                        console.log("TRANSACTIONS", transactions);
                         return (
                             <tr key={element.id}>
                                 <td className="px-6 py-4 border-0 bg-shape text-text_body rounded-tl-lg rounded-bl-lg">{element.title}</td>
@@ -33,7 +34,7 @@ const TransactionTable = () => {
                                 </td>
                             </tr>
                         );
-                    })}
+                    }) : <div className="animate-spin"></div>}
                 </tbody>
             </table>
         </div>
