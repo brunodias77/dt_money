@@ -45,21 +45,21 @@ const NewTransactionModal = ({ isNewTransactionModalOpen, handleCloseNewTransact
                 <form onSubmit={handleCreateNewTransaction} className="">
                     <h2 className="text-text_title text-2xl	">Cadastrar transação</h2>
                     <Input value={title} onChange={(event) => setTitle(event.target.value)} placeholder="Descricao" />
-                    <Input placeholder="Valor" value={value} onChange={(event) => setValue(Number(event.target.value))} />
+                    <Input placeholder="VALOR" type="number" value={value} onChange={(event) => setValue(Number(event.target.value))} />
                     <div className="flex gap-2 items-center justify-between w-full mt-4">
                         <Button
                             type="button"
                             onClick={() => {
                                 setType('deposit');
                             }}
-                            className={`flex items-center justify-center ${type === 'deposit' ? 'bg-green-100' : 'bg-white'}`}                        >
+                            className={` cursor-pointer	 flex items-center justify-center ${type === 'deposit' ? 'bg-green-100' : 'bg-white'}`}                        >
                             <Image src={EntradasImg} alt="Entradas" className="w-7 h-7" />
                             <span className="ml-4 text-base text-gray-700">Entradas</span>
                         </Button>
                         <Button
                             type="button"
                             onClick={() => setType('withdraw')}
-                            className={`flex items-center justify-center ${type === 'withdraw' ? 'bg-red-100' : 'bg-white'}`}
+                            className={`cursor-pointer flex items-center justify-center ${type === 'withdraw' ? 'bg-red-100' : 'bg-white'}`}
                         >
                             <Image src={SaidasImg} alt="Saídas" className="w-7 h-7" />
                             <span className="ml-4 text-base text-gray-700">Saídas</span>
@@ -68,7 +68,7 @@ const NewTransactionModal = ({ isNewTransactionModalOpen, handleCloseNewTransact
                     </div>
                     <Input placeholder="Categoria" value={category} onChange={(event) => setCategory(event.target.value)}
                     />
-                    <Button className="mt-8 bg-green_600 text-white font-bold px-8" type="submit">
+                    <Button className="hover:brightness-90 mt-8 bg-green_600 text-white font-bold px-8" type="submit">
                         <span className="text-lg">Cadastrar</span>
                     </Button>
                 </form>
